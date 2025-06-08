@@ -8,20 +8,23 @@ namespace SummerFun.Models
 		private string description;
 		private HashSet<Muscles> muscleGroup;
 		private Equipment equipmentUsed;
-
-		public ExerciseModel(string name, string description, Equipment equipmentUsed)
+		/// <summary>
+		/// The data template for an exercise
+		/// </summary>
+		/// <param name="Name">what the exercise is called</param>
+		/// <param name="Description"> a blurb describing the exercise</param>
+		/// <param name="EquipmentUsed">what is required to do the exercise</param>
+		public ExerciseModel(string Name, string Description, Equipment EquipmentUsed, HashSet<Muscles> MuscleGroup)
 		{
-			this.name = name;
-			this.description = description;
-			this.equipmentUsed = equipmentUsed;
-			this.muscleGroup = new HashSet<Muscles>();
+			this.name = Name;
+			this.description = Description;
+			this.equipmentUsed = EquipmentUsed;
+			this.muscleGroup = MuscleGroup;
 		}
 
-		public void AddMuscleGroup(Muscles muscle)
-		{
-			muscleGroup.Add(muscle);
-		}
-
+		/// <summary>
+		/// name of the exercise
+		/// </summary>
 		public string Name
 		{
 			get
@@ -33,6 +36,10 @@ namespace SummerFun.Models
 				name = value;
 			}
 		}
+
+		/// <summary>
+		/// the blurb for the exercise
+		/// </summary>
 		public string Description
 		{
 			get
@@ -44,6 +51,10 @@ namespace SummerFun.Models
 				description = value;
 			}
 		}
+
+		/// <summary>
+		/// lists all the muscles affected by the exercise
+		/// </summary>
 		public HashSet<Muscles> MuscleGroup
 		{
 			get
@@ -51,6 +62,10 @@ namespace SummerFun.Models
 				return muscleGroup;
 			}
 		}
+
+		/// <summary>
+		/// the equipment used for the exercise
+		/// </summary>
 		public Equipment EquipmentUsed
 		{
 			get

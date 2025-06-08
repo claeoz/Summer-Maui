@@ -6,6 +6,7 @@
 		Barbell,
 		Kettlebell,
 		Cardio,
-		Machine
+		Machine,
+		Body
 	}
 }
