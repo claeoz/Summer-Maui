@@ -127,19 +127,14 @@ namespace SummerFun.Helper
 							{
 								while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
 								{
-									if (reader.TokenType == JsonTokenType.PropertyName)
+									if (reader.TokenType == JsonTokenType.String)
 									{
-										string muscleProp = reader.GetString();
-										if (!reader.Read()) continue;
-
-										if (muscleProp == "Muscle")
-										{
-											muscles.Add(FactoryHelper.StringToMuscles(reader.GetString()));
-										}
+										muscles.Add(FactoryHelper.StringToMuscles(reader.GetString()));
 									}
 								}
 							}
 							break;
+
 					}
 				}
 				else if (reader.TokenType == JsonTokenType.EndObject && Name != "")
