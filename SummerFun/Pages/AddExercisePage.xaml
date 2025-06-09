@@ -4,9 +4,6 @@
              x:Class="SummerFun.Pages.AddExercisePage"
              Title="AddExercisePage">
     <VerticalStackLayout>
-        <Label 
-            Text="Add Exercise"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        
     </VerticalStackLayout>
 </ContentPage>
