@@ -41,7 +41,7 @@ namespace SummerFun.Helper
 			FileStream fileStream = File.OpenWrite(path);
 			Utf8JsonWriter writer = new Utf8JsonWriter(fileStream);
 
-			writer.WriteStartObject();
+			writer.WriteStartArray();
 			foreach (ExerciseModel model in exercises)
 			{
 				writer.WriteStartObject();
@@ -51,18 +51,18 @@ namespace SummerFun.Helper
 				writer.WriteStartArray("Muscles");
 				foreach (Muscles muscle in model.MuscleGroup)
 				{
-					writer.WriteString("Muscle", muscle.ToString());
+					writer.WriteStringValue(muscle.ToString());
 				}
 				writer.WriteEndArray();
 				writer.WriteEndObject();
 			}
-			writer.WriteEndObject();
+			writer.WriteEndArray();
 			writer.Flush();
 			fileStream.Close();
 		}
 		public static HashSet<ExerciseModel> LoadExercises()
 		{
-			if (!File.Exists(path))
+			if (!File.Exists(path) || new FileInfo(path).Length == 0)
 			{
 				SaveExercises(defaultSet);
 			}
