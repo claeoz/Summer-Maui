@@ -1,9 +1,14 @@
-namespace SummerFun.Pages;
+using SummerFun.ViewModels;
 
-public partial class Exercises : ContentPage
+namespace SummerFun.Pages
 {
-	public Exercises()
+	public partial class Exercises : ContentPage
 	{
-		InitializeComponent();
+		public Exercises()
+		{
+			InitializeComponent();
+			BindingContext = new ExercisesViewModel();
+		}
 	}
+
 }

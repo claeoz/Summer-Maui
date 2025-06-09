@@ -10,6 +10,7 @@ namespace SummerFun.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ExercisesViewModel()
 		{
+
 			Exercises = new ObservableCollection<ExerciseModel>
 			{
 				new ExerciseModel

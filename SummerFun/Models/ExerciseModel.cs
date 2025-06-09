@@ -22,6 +22,14 @@ namespace SummerFun.Models
 			this.muscleGroup = MuscleGroup;
 		}
 
+		public string MusclesAsString
+		{
+			get
+			{
+				return string.Join(", ", this.muscleGroup);
+			}
+		}
+
 		/// <summary>
 		/// name of the exercise
 		/// </summary>
