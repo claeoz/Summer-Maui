@@ -3,19 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SummerFun.Pages.Exercises"
              Title="Exercises">
-
-	<CollectionView ItemsSource="{Binding Exercises}">
-		<CollectionView.ItemTemplate>
-			<DataTemplate>
-				<Border Margin="10" Padding="10">
-					<VerticalStackLayout>
-						<Label Text="{Binding Name}"/>
-						<Label Text="{Binding Description}"/>
-						<Label Text="{Binding MusclesAsString}"/>
-						<Label Text="{Binding EquipmentUsed}"/>
-					</VerticalStackLayout>
-				</Border>
-			</DataTemplate>
-		</CollectionView.ItemTemplate>
-	</CollectionView>
+	<Grid RowDefinitions="*,Auto">
+		<CollectionView Grid.Row="0" ItemsSource="{Binding Exercises}">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Border Margin="10" Padding="10">
+						<VerticalStackLayout>
+							<Label Text="{Binding Name}"/>
+							<Label Text="{Binding Description}"/>
+							<Label Text="{Binding MusclesAsString}"/>
+							<Label Text="{Binding EquipmentUsed}"/>
+						</VerticalStackLayout>
+					</Border>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+		<HorizontalStackLayout Grid.Row="1" Padding="10" Spacing="10">
+			<Button Text="Add Exercise" Command="{Binding AddExerciseCommand}"/>
+		</HorizontalStackLayout>
+	</Grid>
 </ContentPage>
