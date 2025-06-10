@@ -4,6 +4,34 @@
              x:Class="SummerFun.Pages.AddExercisePage"
              Title="AddExercisePage">
     <VerticalStackLayout>
-        
+		<HorizontalStackLayout>
+			<Label Text="Name"/>
+			<Entry Text="{Binding Name}"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Description"/>
+			<Editor AutoSize="TextChanges" Text="{Binding Description}" />
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Equipment"/>
+			<Picker SelectedItem="{Binding UsedEquipment}" ItemsSource="{Binding EquipmentOptions}"/>
+		</HorizontalStackLayout>
+		<VerticalStackLayout>
+			<Label Text="Muscles"/>
+			<CollectionView ItemsSource="{Binding MusclesOptions}" SelectionMode="Multiple" SelectedItems="{Binding MusclesUsed}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Border>
+							<Label Text="{Binding .}"/>
+						</Border>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</VerticalStackLayout>
+		<HorizontalStackLayout>
+			<Button Text="Add"/>
+			<Button Text="Cancel"/>
+		</HorizontalStackLayout>
+		<Image Source="magnus.png"></Image>
     </VerticalStackLayout>
 </ContentPage>
