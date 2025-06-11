@@ -19,7 +19,7 @@
 		</HorizontalStackLayout>
 		<VerticalStackLayout>
 			<Label Text="Muscles"/>
-			<CollectionView ItemsSource="{Binding MusclesOptions}" SelectionMode="Multiple" SelectedItems="{Binding MusclesUsed}">
+			<CollectionView ItemsSource="{Binding MusclesOptions}" SelectionMode="Multiple" SelectedItems="{Binding SelectedMuscleObjects}">
 				<CollectionView.ItemTemplate>
 					<DataTemplate>
 						<Border>
@@ -30,8 +30,8 @@
 			</CollectionView>
 		</VerticalStackLayout>
 		<HorizontalStackLayout>
-			<Button Text="Add"/>
-			<Button Text="Cancel"/>
+			<Button Text="Add" Command="{Binding SaveCommand}"/>
+			<Button Text="Cancel" Command="{Binding ExitCommand}"/>
 		</HorizontalStackLayout>
 		<Image Source="magnus.png"></Image>
     </VerticalStackLayout>

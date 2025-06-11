@@ -8,6 +8,7 @@ namespace SummerFun
 		{
 			InitializeComponent();
 			Routing.RegisterRoute(nameof(AddExercisePage), typeof(AddExercisePage));
+			Routing.RegisterRoute(nameof(Exercises), typeof(Exercises));
 		}
 	}
 }
