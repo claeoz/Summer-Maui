@@ -20,8 +20,8 @@
 		</CollectionView>
 		<HorizontalStackLayout Grid.Row="1" Padding="10" Spacing="10">
 			<Button Text="Add" Command="{Binding AddExerciseCommand}"/>
-			<Button Text="Edit"/>
-			<Button Text="Delete"/>
+			<Button Text="Edit" Command="{Binding EditCommand}"/>
+			<Button Text="Delete" Command="{Binding DeleteCommand}"/>
 		</HorizontalStackLayout>
 	</Grid>
 </ContentPage>
