@@ -25,6 +25,12 @@ namespace SummerFun.ViewModels
 		private async Task OnReset()
 		{
 			JSONHelper.Reset();
+			Exercises.Clear();
+			HashSet<ExerciseModel> set = JSONHelper.LoadExercises();
+			foreach (ExerciseModel model in set)
+			{
+				Exercises.Add(model);
+			}
 			Exercises = new ObservableCollection<ExerciseModel>(JSONHelper.LoadExercises());
 		}
 		private async Task OnEdit()
