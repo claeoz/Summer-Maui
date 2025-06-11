@@ -22,6 +22,7 @@
 			<Button Text="Add" Command="{Binding AddExerciseCommand}"/>
 			<Button Text="Edit" Command="{Binding EditCommand}"/>
 			<Button Text="Delete" Command="{Binding DeleteCommand}"/>
+			<Button Text="Reset" Command="{Binding ResetCommand}"/>
 		</HorizontalStackLayout>
 	</Grid>
 </ContentPage>

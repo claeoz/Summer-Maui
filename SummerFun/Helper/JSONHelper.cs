@@ -30,8 +30,35 @@ namespace SummerFun.Helper
 					{
 						Muscles.Abs
 					}
+				),
+				new ExerciseModel(
+					"Barbell Squat",
+					"A compound movement that strengthens the legs and glutes using a barbell.",
+					Equipment.Barbell,
+					new HashSet<Muscles>
+					{
+						Muscles.Quads,
+						Muscles.Glutes,
+						Muscles.Hamstrings
+					}
+				),
+
+				new ExerciseModel(
+					"Lat Pulldown",
+					"An upper-body pull exercise that targets the latissimus dorsi and biceps.",
+					Equipment.Machine,
+					new HashSet<Muscles>
+					{
+						Muscles.Lats,
+						Muscles.Biceps
+					}
 				)
 		};
+		public static void Reset()
+		{
+			File.Delete(path);
+			SaveExercises(defaultSet);
+		}
 		public static void SaveExercises(HashSet<ExerciseModel> exercises)
 		{
 			if (File.Exists(path))

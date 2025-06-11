@@ -16,10 +16,16 @@ namespace SummerFun.ViewModels
 			AddExerciseCommand = new Command(async () => await OnAddExercise());
 			EditCommand = new Command(async () => await OnEdit());
 			DeleteCommand = new Command(async () => await OnDelete());
+			ResetCommand = new Command(async () => await OnReset());
 		}
 		private async Task OnAddExercise()
 		{
 			await Shell.Current.GoToAsync(nameof(AddExercisePage));
+		}
+		private async Task OnReset()
+		{
+			JSONHelper.Reset();
+			Exercises = new ObservableCollection<ExerciseModel>(JSONHelper.LoadExercises());
 		}
 		private async Task OnEdit()
 		{
@@ -41,6 +47,7 @@ namespace SummerFun.ViewModels
 		public ICommand AddExerciseCommand { get; set; }
 		public ICommand EditCommand { get; set; }
 		public ICommand DeleteCommand { get; set; }
+		public ICommand ResetCommand { get; set; }
 		public ExerciseModel SelectedExercise { get; set; }
 	}
 }
