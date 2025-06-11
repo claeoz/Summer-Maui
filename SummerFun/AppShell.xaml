@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:SummerFun"
 	xmlns:pages="clr-namespace:SummerFun.Pages"
     Shell.FlyoutBehavior="Flyout"
-    Title="SummerFun">
+    Title="SummerFun"
+	FlyoutBackgroundColor="{StaticResource UniversalSecondaryColor}">
 
     <ShellContent
         Title="Home"
