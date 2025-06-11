@@ -4,7 +4,7 @@
              x:Class="SummerFun.Pages.Exercises"
              Title="Exercises">
 	<Grid RowDefinitions="*,Auto">
-		<CollectionView Grid.Row="0" ItemsSource="{Binding Exercises}">
+		<CollectionView Grid.Row="0" ItemsSource="{Binding Exercises}" SelectionMode="Single" SelectedItem="{Binding SelectedExercise}">
 			<CollectionView.ItemTemplate>
 				<DataTemplate>
 					<Border Margin="10" Padding="10">

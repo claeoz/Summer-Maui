@@ -21,5 +21,6 @@ namespace SummerFun.ViewModels
 		}
 		public ObservableCollection<ExerciseModel> Exercises { get; set; }
 		public ICommand AddExerciseCommand { get; set; }
+		public ExerciseModel SelectedExercise { get; set; }
 	}
 }
