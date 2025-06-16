@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SummerFun.Pages.OverView"
              Title="OverView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Over View"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+	<Grid>
+		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
+		<ScrollView ZIndex="1">
+			<VerticalStackLayout>
+				<Label 
+                Text="Over View"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+			</VerticalStackLayout>
+		</ScrollView>
+	</Grid>
 </ContentPage>

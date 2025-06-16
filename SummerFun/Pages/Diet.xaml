@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SummerFun.Pages.Diet"
              Title="Diet">
-    <VerticalStackLayout>
-        <Label 
-            Text="Diet"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+	<Grid>
+		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
+		<ScrollView ZIndex="1">
+			<Label Text="Diet"/>
+		</ScrollView>
+	</Grid>
 </ContentPage>
