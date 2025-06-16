@@ -34,10 +34,10 @@
         <Setter Property="TextColor" Value="{StaticResource UniversalTextColor}" />
         <Setter Property="BackgroundColor" Value="{StaticResource UniversalSecondaryColor}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="BorderWidth" Value="0"/>
         <Setter Property="CornerRadius" Value="8"/>
-        <Setter Property="Padding" Value="14,10"/>
+        <Setter Property="Padding" Value="10"/>
         <Setter Property="MinimumHeightRequest" Value="44"/>
         <Setter Property="MinimumWidthRequest" Value="44"/>
 		<Setter Property="Margin" Value="4"/>
@@ -98,7 +98,7 @@
 
 	<Style TargetType="Editor">
 		<Setter Property="TextColor" Value="{StaticResource UniversalTextColor}" />
-		<Setter Property="BackgroundColor" Value="{StaticResource UniversalBackground}" />
+		<Setter Property="BackgroundColor" Value="Transparent" />
 		<Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />

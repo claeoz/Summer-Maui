@@ -4,35 +4,52 @@
              x:Class="SummerFun.Pages.AddExercisePage"
              Title="AddExercisePage"
 			 BackgroundColor="{StaticResource UniversalBackground}">
-    <VerticalStackLayout>
-		<HorizontalStackLayout>
-			<Label Text="Name"/>
-			<Entry Text="{Binding Name}"/>
-		</HorizontalStackLayout>
-		<HorizontalStackLayout>
-			<Label Text="Description"/>
-			<Editor AutoSize="TextChanges" Text="{Binding Description}" />
-		</HorizontalStackLayout>
-		<HorizontalStackLayout>
-			<Label Text="Equipment"/>
-			<Picker SelectedItem="{Binding UsedEquipment}" ItemsSource="{Binding EquipmentOptions}"/>
-		</HorizontalStackLayout>
-		<VerticalStackLayout>
-			<Label Text="Muscles"/>
-			<CollectionView ItemsSource="{Binding MusclesOptions}" SelectionMode="Multiple" SelectedItems="{Binding SelectedMuscleObjects}">
-				<CollectionView.ItemTemplate>
-					<DataTemplate>
-						<Border>
-							<Label Text="{Binding .}"/>
-						</Border>
-					</DataTemplate>
-				</CollectionView.ItemTemplate>
-			</CollectionView>
-		</VerticalStackLayout>
-		<HorizontalStackLayout>
-			<Button Text="Add" Command="{Binding SaveCommand}"/>
-			<Button Text="Cancel" Command="{Binding ExitCommand}"/>
-		</HorizontalStackLayout>
-		<Image Source="magnus.png"></Image>
-    </VerticalStackLayout>
+	<Grid>
+		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
+		<ScrollView ZIndex="1">
+			<VerticalStackLayout>
+				<Border Padding="15,5" Margin="0,4">
+					<HorizontalStackLayout>
+						<Label Text="Name: " FontSize="20"/>
+						<Entry Text="{Binding Name}"/>
+					</HorizontalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<VerticalStackLayout>
+						<Label Text="Description" FontSize="20" HorizontalTextAlignment="Center"/>
+						<Editor AutoSize="TextChanges" Text="{Binding Description}" MinimumHeightRequest="180"/>
+					</VerticalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<HorizontalStackLayout>
+						<Label Text="Equipment: " FontSize="20"/>
+						<Picker SelectedItem="{Binding UsedEquipment}" ItemsSource="{Binding EquipmentOptions}"/>
+					</HorizontalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<VerticalStackLayout>
+						<Label Text="Muscles" FontSize="20" HorizontalTextAlignment="Center"/>
+						<CollectionView ItemsSource="{Binding MusclesOptions}"
+					SelectionMode="Multiple"
+					SelectedItems="{Binding SelectedMuscleObjects}">
+							<CollectionView.ItemsLayout>
+								<GridItemsLayout Orientation="Vertical" Span="2" />
+							</CollectionView.ItemsLayout>
+							<CollectionView.ItemTemplate>
+								<DataTemplate>
+									<Border Margin="5" Padding="1">
+										<Label Text="{Binding .}" FontSize="18" Background="{StaticResource UniversalSecondaryColor}" HorizontalTextAlignment="Center"/>
+									</Border>
+								</DataTemplate>
+							</CollectionView.ItemTemplate>
+						</CollectionView>
+					</VerticalStackLayout>
+				</Border>
+				<HorizontalStackLayout>
+					<Button Text="Add" Command="{Binding SaveCommand}"/>
+					<Button Text="Cancel" Command="{Binding ExitCommand}"/>
+				</HorizontalStackLayout>
+			</VerticalStackLayout>
+		</ScrollView>
+	</Grid>
 </ContentPage>
