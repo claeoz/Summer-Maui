@@ -5,12 +5,13 @@
              Title="Exercises">
 	<Grid>
 		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
-		<ScrollView ZIndex="1">
-			<Grid RowDefinitions="*,Auto" HorizontalOptions="FillAndExpand">
-				<CollectionView Grid.Row="0" ItemsSource="{Binding Exercises}" SelectionMode="Single" SelectedItem="{Binding SelectedExercise}">
+		<Grid RowDefinitions="Auto,*,Auto" HorizontalOptions="FillAndExpand" ZIndex="1">
+				<SearchBar Grid.Row="0"></SearchBar>
+				<ScrollView Grid.Row="1">
+				<CollectionView Grid.Row="1" ItemsSource="{Binding Exercises}" SelectionMode="Single" SelectedItem="{Binding SelectedExercise}">
 					<CollectionView.ItemTemplate>
 						<DataTemplate>
-							<Border Margin="10" Padding="10" StrokeShape="RoundRectangle">
+							<Border Margin="3" Padding="10" StrokeShape="RoundRectangle">
 								<VerticalStackLayout>
 									<Label Text="{Binding Name}" FontSize="20" Background="{StaticResource UniversalSecondaryColor}" Padding="10" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
 									<Label Text="{Binding Description}"/>
@@ -21,13 +22,13 @@
 						</DataTemplate>
 					</CollectionView.ItemTemplate>
 				</CollectionView>
-				<Grid Grid.Row="1" Padding="10" ColumnDefinitions="*,*,*,*">
-					<Button Text="Add" Command="{Binding AddExerciseCommand}" Grid.Column="0"/>
-					<Button Text="Edit" Command="{Binding EditCommand}" Grid.Column="1"/>
-					<Button Text="Delete" Command="{Binding DeleteCommand}" Grid.Column="2"/>
-					<Button Text="Reset" Command="{Binding ResetCommand}" Grid.Column="3"/>
-				</Grid>
+			</ScrollView>
+			<Grid Grid.Row="2" Padding="10" ColumnDefinitions="*,*,*,*">
+				<Button Text="Add" Command="{Binding AddExerciseCommand}" Grid.Column="0"/>
+				<Button Text="Edit" Command="{Binding EditCommand}" Grid.Column="1"/>
+				<Button Text="Delete" Command="{Binding DeleteCommand}" Grid.Column="2"/>
+				<Button Text="Reset" Command="{Binding ResetCommand}" Grid.Column="3"/>
 			</Grid>
-		</ScrollView>
+		</Grid>
 	</Grid>
 </ContentPage>
