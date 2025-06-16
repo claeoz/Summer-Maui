@@ -6,6 +6,7 @@
 	<!--Clae set styles-->
 	<Style TargetType="ContentPage" ApplyToDerivedTypes="True">
 		<Setter Property="BackgroundColor" Value="{StaticResource UniversalBackground}"/>
+		<Setter Property="Padding" Value="20"/>
 	</Style>
 
 
@@ -21,7 +22,7 @@
 
     <Style TargetType="Border">
         <Setter Property="Stroke" Value="{StaticResource UniversalSecondaryColor}" />
-        <Setter Property="StrokeShape" Value="Rectangle"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle"/>
         <Setter Property="StrokeThickness" Value="1"/>
     </Style>
 

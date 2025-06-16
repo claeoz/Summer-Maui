@@ -7,6 +7,7 @@
 	<!--universal colour application-->
 	<Color x:Key="UniversalBackground">#424a4b</Color>
 	<Color x:Key="UniversalTextColor">#9ae4ee</Color>
+	<Color x:Key="UniversalSelectedColor">#9ad2ee</Color>
 	<Color x:Key="UniversalSecondaryColor">#6c7a7c</Color>
 
 	<!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
