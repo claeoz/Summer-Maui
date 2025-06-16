@@ -7,10 +7,57 @@
 		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
 		<ScrollView ZIndex="1">
 			<VerticalStackLayout>
-				<Label 
-                    Text="Schedule"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center" />
+				<Grid RowDefinitions="*,*,*,*,*,*,*">
+					<Border Grid.Row="0">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								MONDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="1">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								TUESDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="2">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								WEDNESDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="3">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								THURSDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="4">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								FRIDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="5">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								SATURDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+					<Border Grid.Row="6">
+						<VerticalStackLayout>
+							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
+								SUNDAY
+							</Label>
+						</VerticalStackLayout>
+					</Border>
+				</Grid>
 			</VerticalStackLayout>
 		</ScrollView>
 	</Grid>
