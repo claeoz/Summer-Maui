@@ -13,6 +13,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								MONDAY
 							</Label>
+							<Label Text="{Binding MondayTitle }" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="1">
@@ -20,6 +21,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								TUESDAY
 							</Label>
+							<Label Text="{Binding TuesdayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="2">
@@ -27,6 +29,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								WEDNESDAY
 							</Label>
+							<Label Text="{Binding WednesdayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="3">
@@ -34,6 +37,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								THURSDAY
 							</Label>
+							<Label Text="{Binding ThursdayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="4">
@@ -41,6 +45,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								FRIDAY
 							</Label>
+							<Label Text="{Binding FridayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="5">
@@ -48,6 +53,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								SATURDAY
 							</Label>
+							<Label Text="{Binding SaturdayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 					<Border Grid.Row="6">
@@ -55,6 +61,7 @@
 							<Label HorizontalTextAlignment="Center" Padding="0,2" FontSize="40" Background="{StaticResource UniversalSecondaryColor}">
 								SUNDAY
 							</Label>
+							<Label Text="{Binding SundayTitle}" FontSize="25" HorizontalTextAlignment="Center"/>
 						</VerticalStackLayout>
 					</Border>
 				</Grid>

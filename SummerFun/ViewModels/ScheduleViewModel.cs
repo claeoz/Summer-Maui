@@ -62,7 +62,136 @@ namespace SummerFun.ViewModels
 					new Tuple<ExerciseModel, int>(BarbellSitUps, 10),
 					new Tuple<ExerciseModel, int>(BarbellSitUps, 5)
 				});
+			tuesdayRoutine = legday;
+			fridayRoutine = legday;
+			sundayRoutine = legday;
 		}
 
+		public RoutineModel MondayRoutine
+		{
+			get
+			{
+				return mondayRoutine;
+			}
+			set
+			{
+				mondayRoutine = value;
+			}
+		}
+		public RoutineModel TuesdayRoutine
+		{
+			get
+			{
+				return tuesdayRoutine;
+			}
+			set
+			{
+				tuesdayRoutine = value;
+			}
+		}
+		public RoutineModel WednesdayRoutine
+		{
+			get
+			{
+				return wednesdayRoutine;
+			}
+			set
+			{
+				wednesdayRoutine = value;
+			}
+		}
+		public RoutineModel ThursdayRoutine
+		{
+			get
+			{
+				return thursdayRoutine;
+			}
+			set
+			{
+				thursdayRoutine = value;
+			}
+		}
+		public RoutineModel FridayRoutine
+		{
+			get
+			{
+				return fridayRoutine;
+			}
+			set
+			{
+				fridayRoutine = value;
+			}
+		}
+		public RoutineModel SaturdayRoutine
+		{
+			get
+			{
+				return saturdayRoutine;
+			}
+			set
+			{
+				saturdayRoutine = value;
+			}
+		}
+		public RoutineModel SundayRoutine
+		{
+			get
+			{
+				return sundayRoutine;
+			}
+			set
+			{
+				sundayRoutine = value;
+			}
+		}
+		public string MondayTitle
+		{
+			get
+			{
+				return mondayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string TuesdayTitle
+		{
+			get
+			{
+				return tuesdayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string WednesdayTitle
+		{
+			get
+			{
+				return wednesdayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string ThursdayTitle
+		{
+			get
+			{
+				return thursdayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string FridayTitle
+		{
+			get
+			{
+				return fridayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string SaturdayTitle
+		{
+			get
+			{
+				return saturdayRoutine?.Name ?? "Restday";
+			}
+		}
+		public string SundayTitle
+		{
+			get
+			{
+				return SundayRoutine?.Name ?? "Restday";
+			}
+		}
 	}
 }
