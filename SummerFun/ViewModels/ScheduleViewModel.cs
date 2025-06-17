@@ -62,6 +62,7 @@ namespace SummerFun.ViewModels
 					new Tuple<ExerciseModel, int>(BarbellSitUps, 10),
 					new Tuple<ExerciseModel, int>(BarbellSitUps, 5)
 				});
+			mondayRoutine = legday;
 			tuesdayRoutine = legday;
 			fridayRoutine = legday;
 			sundayRoutine = legday;
