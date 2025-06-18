@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SummerFun.Pages.EditExercise"
+             Title="EditExercise">
+	<Grid>
+		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
+		<ScrollView ZIndex="1">
+			<VerticalStackLayout>
+				<Border Padding="15,5" Margin="0,4">
+					<HorizontalStackLayout>
+						<Label Text="Name: " FontSize="20"/>
+						<Entry Text="{Binding SelectedExercise.Name}"/>
+					</HorizontalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<VerticalStackLayout>
+						<Label Text="Description" FontSize="20" HorizontalTextAlignment="Center"/>
+						<Editor AutoSize="TextChanges" Text="{Binding SelectedExercise.Description}" MinimumHeightRequest="180"/>
+					</VerticalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<HorizontalStackLayout>
+						<Label Text="Equipment: " FontSize="20"/>
+						<Picker SelectedItem="{Binding SelectedExercise.UsedEquipment}" ItemsSource="{Binding EquipmentOptions}" TextColor="{StaticResource UniversalTextColor}"/>
+					</HorizontalStackLayout>
+				</Border>
+				<Border Padding="15,5" Margin="0,4">
+					<VerticalStackLayout>
+						<Label Text="Muscles" FontSize="20" HorizontalTextAlignment="Center"/>
+						<CollectionView ItemsSource="{Binding MusclesOptions}"
+				SelectionMode="Multiple"
+				SelectedItems="{Binding SelectedMuscleObjects}">
+							<CollectionView.ItemsLayout>
+								<GridItemsLayout Orientation="Vertical" Span="2" />
+							</CollectionView.ItemsLayout>
+							<CollectionView.ItemTemplate>
+								<DataTemplate>
+									<Border Margin="5" Padding="1">
+										<Label Text="{Binding .}" FontSize="18" Background="{StaticResource UniversalSecondaryColor}" HorizontalTextAlignment="Center"/>
+									</Border>
+								</DataTemplate>
+							</CollectionView.ItemTemplate>
+						</CollectionView>
+					</VerticalStackLayout>
+				</Border>
+				<HorizontalStackLayout>
+					<Button Text="Add" Command="{Binding SaveCommand}"/>
+					<Button Text="Cancel" Command="{Binding ExitCommand}"/>
+				</HorizontalStackLayout>
+			</VerticalStackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>

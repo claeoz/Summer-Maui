@@ -76,6 +76,9 @@
 	  <MauiXaml Update="Pages\Diet.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\EditExercise.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Exercises.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

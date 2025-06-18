@@ -1,5 +1,3 @@
-using SummerFun.ViewModels;
-
 namespace SummerFun.Pages
 {
 	public partial class Exercises : ContentPage
@@ -7,7 +5,7 @@ namespace SummerFun.Pages
 		public Exercises()
 		{
 			InitializeComponent();
-			BindingContext = new ExercisesViewModel();
+			BindingContext = App.ViewModelExercise;
 		}
 	}
 

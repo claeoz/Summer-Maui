@@ -1,15 +1,19 @@
-﻿namespace SummerFun
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+﻿using SummerFun.ViewModels;
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
-    }
+namespace SummerFun
+{
+	public partial class App : Application
+	{
+		public static ExercisesViewModel ViewModelExercise { get; set; }
+		public App()
+		{
+			ViewModelExercise = new ExercisesViewModel();
+			InitializeComponent();
+		}
+
+		protected override Window CreateWindow(IActivationState? activationState)
+		{
+			return new Window(new AppShell());
+		}
+	}
 }
