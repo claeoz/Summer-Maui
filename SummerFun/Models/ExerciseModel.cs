@@ -1,13 +1,16 @@
-﻿using SummerFun.Enums;
+﻿using System.ComponentModel;
+using SummerFun.Enums;
+using SummerFun.Helper;
 
 namespace SummerFun.Models
 {
-	public class ExerciseModel
+	public class ExerciseModel : INotifyPropertyChanged
 	{
 		private string name;
 		private string description;
 		private HashSet<Muscles> muscleGroup;
 		private Equipment equipmentUsed;
+		public event PropertyChangedEventHandler PropertyChanged;
 		/// <summary>
 		/// The data template for an exercise
 		/// </summary>
@@ -22,11 +25,28 @@ namespace SummerFun.Models
 			this.muscleGroup = MuscleGroup;
 		}
 
+		protected void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
 		public string MusclesAsString
 		{
 			get
 			{
 				return string.Join(", ", this.muscleGroup);
+			}
+		}
+
+		public string EquipmentAsString
+		{
+			get
+			{
+				return equipmentUsed.ToString();
+			}
+			set
+			{
+				EquipmentUsed = FactoryHelper.StringToEquipment(value);
 			}
 		}
 
@@ -82,7 +102,11 @@ namespace SummerFun.Models
 			}
 			set
 			{
-				equipmentUsed = value;
+				if (equipmentUsed != value)
+				{
+					equipmentUsed = value;
+					OnPropertyChanged(nameof(EquipmentUsed));
+				}
 			}
 		}
 	}

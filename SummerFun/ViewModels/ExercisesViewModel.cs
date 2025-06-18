@@ -11,6 +11,7 @@ namespace SummerFun.ViewModels
 	public class ExercisesViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
+		private ExerciseModel selectedExercise;
 		public ExercisesViewModel()
 		{
 			Exercises = new ObservableCollection<ExerciseModel>(JSONHelper.LoadExercises());
@@ -23,6 +24,7 @@ namespace SummerFun.ViewModels
 		}
 		private async Task OnSave()
 		{
+
 			await App.Current.MainPage.Navigation.PopAsync();
 		}
 		private async Task OnExit()
@@ -85,6 +87,20 @@ namespace SummerFun.ViewModels
 		public ICommand ResetCommand { get; set; }
 		public ICommand SaveCommand { get; set; }
 		public ICommand ExitCommand { get; set; }
-		public ExerciseModel SelectedExercise { get; set; }
+		public ExerciseModel SelectedExercise
+		{
+			get
+			{
+				return selectedExercise;
+			}
+			set
+			{
+				if (selectedExercise != value)
+				{
+					selectedExercise = value;
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedExercise)));
+				}
+			}
+		}
 	}
 }

@@ -22,7 +22,7 @@
 				<Border Padding="15,5" Margin="0,4">
 					<HorizontalStackLayout>
 						<Label Text="Equipment: " FontSize="20"/>
-						<Picker SelectedItem="{Binding SelectedExercise.UsedEquipment}" ItemsSource="{Binding EquipmentOptions}" TextColor="{StaticResource UniversalTextColor}"/>
+						<Picker SelectedItem="{Binding SelectedExercise.EquipmentUsed}" ItemsSource="{Binding EquipmentOptions}" TextColor="{StaticResource UniversalTextColor}"/>
 					</HorizontalStackLayout>
 				</Border>
 				<Border Padding="15,5" Margin="0,4">
