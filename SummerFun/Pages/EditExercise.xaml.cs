@@ -7,6 +7,7 @@ public partial class EditExercise : ContentPage
 	public EditExercise(ExercisesViewModel exercisesViewModel)
 	{
 		InitializeComponent();
-		BindingContext = App.ViewModelExercise;
+		BindingContext = exercisesViewModel;
+		//BindingContext = App.ViewModelExercise;
 	}
 }

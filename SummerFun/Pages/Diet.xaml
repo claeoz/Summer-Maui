@@ -6,7 +6,84 @@
 	<Grid>
 		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
 		<ScrollView ZIndex="1">
-			<Label Text="Diet"/>
+			<Border Padding="5">
+				<Grid ColumnDefinitions="*, *, *, *, *" RowDefinitions="auto, auto, auto, auto, auto" >
+					<!--row 1-->
+					<Border Grid.Row="0" Grid.Column="0"/>
+					<Border Grid.Row="0" Grid.Column="1">
+						<Label HorizontalTextAlignment="Center" FontSize="30">
+							Calories
+						</Label>
+					</Border>
+					<Border Grid.Row="0" Grid.Column="2">
+						<Label HorizontalTextAlignment="Center" FontSize="30">
+							Protein
+						</Label>
+					</Border>
+					<Border Grid.Row="0" Grid.Column="3">
+						<Label HorizontalTextAlignment="Center" FontSize="30">
+							Fat
+						</Label>
+					</Border>
+					<Border Grid.Row="0" Grid.Column="4">
+						<Label HorizontalTextAlignment="Center" FontSize="30">
+							Carbs
+						</Label>
+					</Border>
+					<!--row 2-->
+					<Border Grid.Row="1" Grid.Column="0">
+						<Label FontSize="26">
+							Goal
+						</Label>
+					</Border>
+					<Border Grid.Row="1" Grid.Column="1">
+						<Label BindingContext=""/>
+					</Border>
+					<Border Grid.Row="1" Grid.Column="2">
+						<Label BindingContext=""/>
+					</Border>
+					<Border Grid.Row="1" Grid.Column="3">
+						<Label BindingContext=""/>
+					</Border>
+					<Border Grid.Row="1" Grid.Column="4">
+						<Label BindingContext=""/>
+					</Border>
+					<!--row 3-->
+					<Border Grid.Row="2" Grid.Column="0">
+						<Label FontSize="26">Current</Label>
+					</Border>
+					<Border Grid.Row="2" Grid.Column="1">
+						<Label BindingContext=""/>
+					</Border>
+					<Border Grid.Row="2" Grid.Column="2">
+						<Label BindingContext=""/>
+					</Border>
+					<Border Grid.Row="2" Grid.Column="3">
+						<Label BindingContext=""/>
+					</Border>
+					<Border  Grid.Row="2" Grid.Column="4">
+						<Label BindingContext=""/>
+					</Border>
+					<!--row 4-->
+					<Border Grid.Row="3" Grid.Column="0">
+						<Label FontSize="26">Set Goal</Label>
+					</Border>
+					<Border Grid.Row="3" Grid.Column="1">
+						<Entry BindingContext="" Background="Transparent"/>
+					</Border>
+					<Border Grid.Row="3" Grid.Column="2">
+						<Entry BindingContext="" Background="Transparent"/>
+					</Border>
+					<Border  Grid.Row="3" Grid.Column="3">
+						<Entry BindingContext="" Background="Transparent"/>
+					</Border>
+					<Border Grid.Row="3" Grid.Column="4">
+						<Entry BindingContext="" Background="Transparent"/>
+					</Border>
+					<!--row 5-->
+					<Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Text="Update"/>
+				</Grid>
+			</Border>
 		</ScrollView>
 	</Grid>
 </ContentPage>
