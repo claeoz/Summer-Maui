@@ -37,32 +37,32 @@
 						</Label>
 					</Border>
 					<Border Grid.Row="1" Grid.Column="1">
-						<Label BindingContext=""/>
+						<Label Text="{Binding CalorieGoal}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border Grid.Row="1" Grid.Column="2">
-						<Label BindingContext=""/>
+						<Label Text="{Binding ProteinGoal}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border Grid.Row="1" Grid.Column="3">
-						<Label BindingContext=""/>
+						<Label Text="{Binding FatGoal}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border Grid.Row="1" Grid.Column="4">
-						<Label BindingContext=""/>
+						<Label Text="{Binding CarbGoal}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<!--row 3-->
 					<Border Grid.Row="2" Grid.Column="0">
 						<Label FontSize="26">Current</Label>
 					</Border>
 					<Border Grid.Row="2" Grid.Column="1">
-						<Label BindingContext=""/>
+						<Label Text="{Binding CalorieCurrent}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border Grid.Row="2" Grid.Column="2">
-						<Label BindingContext=""/>
+						<Label Text="{Binding ProteinCurrent}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border Grid.Row="2" Grid.Column="3">
-						<Label BindingContext=""/>
+						<Label Text="{Binding FatCurrent}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<Border  Grid.Row="2" Grid.Column="4">
-						<Label BindingContext=""/>
+						<Label Text="{Binding CarbCurrent}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 					</Border>
 					<!--row 4-->
 					<Border Grid.Row="3" Grid.Column="0">
