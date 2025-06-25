@@ -12,6 +12,19 @@
 					Magnus The Swole
 				</Label>
 				<Image Source="magnus.png"></Image>
+				<Border>
+					<VerticalStackLayout>
+							
+						<Label FontSize="40">
+							Weather
+						</Label>
+						<HorizontalStackLayout>
+							<Entry Text="{Binding City}"></Entry>
+							<Button Text="Change City"/>
+						</HorizontalStackLayout>
+						<Label Text="{Binding Summary}"/>
+					</VerticalStackLayout>
+				</Border>
 			</VerticalStackLayout>
 		</ScrollView>
 	</Grid>

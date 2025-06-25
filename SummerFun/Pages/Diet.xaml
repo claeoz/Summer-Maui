@@ -69,10 +69,10 @@
 						<Label FontSize="26">Set Goal</Label>
 					</Border>
 					<Border Grid.Row="3" Grid.Column="1">
-						<Entry BindingContext="" Background="Transparent"/>
+						<Entry Text="{Binding TempCalorie}" Background="Transparent"/>
 					</Border>
 					<Border Grid.Row="3" Grid.Column="2">
-						<Entry BindingContext="" Background="Transparent"/>
+						<Entry Text="{Binding TempProtein}" Background="Transparent"/>
 					</Border>
 					<Border  Grid.Row="3" Grid.Column="3">
 						<Entry BindingContext="" Background="Transparent"/>
