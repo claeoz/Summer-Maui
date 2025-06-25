@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using SummerFun.Enums;
 using SummerFun.Helper;
 using SummerFun.Models;
@@ -8,33 +8,30 @@ using SummerFun.Pages;
 
 namespace SummerFun.ViewModels
 {
-	public class ExercisesViewModel : INotifyPropertyChanged
+	public partial class ExercisesViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		private ExerciseModel selectedExercise;
 		public ExercisesViewModel()
 		{
 			Exercises = new ObservableCollection<ExerciseModel>(JSONHelper.LoadExercises());
-			AddExerciseCommand = new Command(async () => await OnAddExercise());
-			EditCommand = new Command(async () => await OnEdit());
-			DeleteCommand = new Command(async () => await OnDelete());
-			ResetCommand = new Command(async () => await OnReset());
-			SaveCommand = new Command(async () => await OnSave());
-			ExitCommand = new Command(async () => await OnExit());
 		}
+		[RelayCommand]
 		private async Task OnSave()
 		{
-
 			await App.Current.MainPage.Navigation.PopAsync();
 		}
+		[RelayCommand]
 		private async Task OnExit()
 		{
 			await App.Current.MainPage.Navigation.PopAsync();
 		}
+		[RelayCommand]
 		private async Task OnAddExercise()
 		{
 			await Shell.Current.GoToAsync(nameof(AddExercisePage));
 		}
+		[RelayCommand]
 		private async Task OnReset()
 		{
 			JSONHelper.Reset();
@@ -46,6 +43,7 @@ namespace SummerFun.ViewModels
 			}
 			Exercises = new ObservableCollection<ExerciseModel>(JSONHelper.LoadExercises());
 		}
+		[RelayCommand]
 		private async Task OnEdit()
 		{
 			if (SelectedExercise != null)
@@ -54,6 +52,7 @@ namespace SummerFun.ViewModels
 				await App.Current.MainPage.Navigation.PushAsync(new EditExercise(App.ViewModelExercise));
 			}
 		}
+		[RelayCommand]
 		private async Task OnDelete()
 		{
 			if (SelectedExercise != null)
@@ -81,12 +80,6 @@ namespace SummerFun.ViewModels
 			}
 		}
 		public ObservableCollection<ExerciseModel> Exercises { get; set; }
-		public ICommand AddExerciseCommand { get; set; }
-		public ICommand EditCommand { get; set; }
-		public ICommand DeleteCommand { get; set; }
-		public ICommand ResetCommand { get; set; }
-		public ICommand SaveCommand { get; set; }
-		public ICommand ExitCommand { get; set; }
 		public ExerciseModel SelectedExercise
 		{
 			get
