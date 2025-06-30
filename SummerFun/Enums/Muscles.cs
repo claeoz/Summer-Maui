@@ -15,6 +15,7 @@
 		Quads,
 		Hamstrings,
 		Calves,
-		Cardio
+		Cardio,
+		Shoulders
 	}
 }

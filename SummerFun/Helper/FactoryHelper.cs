@@ -57,6 +57,8 @@ namespace SummerFun.Helper
 					return Muscles.Calves;
 				case "cardio":
 					return Muscles.Cardio;
+				case "shoulders":
+					return Muscles.Shoulders;
 				default:
 					throw new ArgumentException($"unable to process {word}");
 			}
