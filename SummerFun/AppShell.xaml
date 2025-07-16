@@ -33,4 +33,8 @@
 		Title="OverView"
 		ContentTemplate="{DataTemplate pages:OverView}"
 		Route="OverView" />
+	<ShellContent
+		Title="Options"
+		ContentTemplate="{DataTemplate pages:OptionsPage}"
+		Route="Options" />
 </Shell>

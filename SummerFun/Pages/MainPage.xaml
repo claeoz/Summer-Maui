@@ -5,27 +5,16 @@
 	<Grid>
 		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
 		<ScrollView ZIndex="1">
-			<VerticalStackLayout
-				Padding="30,0"
-				Spacing="25">
-				<Label>
-					Magnus The Swole
-				</Label>
-				<Image Source="magnus.png"></Image>
-				<Border>
-					<VerticalStackLayout>
-							
-						<Label FontSize="40">
-							Weather
-						</Label>
-						<HorizontalStackLayout>
-							<Entry Text="{Binding City}"></Entry>
-							<Button Text="Change City"/>
-						</HorizontalStackLayout>
-						<Label Text="{Binding Summary}"/>
-					</VerticalStackLayout>
-				</Border>
-			</VerticalStackLayout>
+			<Border StrokeThickness="10">
+				<VerticalStackLayout
+				Padding="5"
+				Spacing="5">
+					<Label FontSize="40" HorizontalTextAlignment="Center">
+						Magnus The Swole
+					</Label>
+					<Image Source="magnus.png"></Image>
+				</VerticalStackLayout>
+			</Border>
 		</ScrollView>
 	</Grid>
 </ContentPage>

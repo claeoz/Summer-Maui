@@ -84,6 +84,9 @@
 	  <MauiXaml Update="Pages\Exercises.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\OptionsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\OverView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
