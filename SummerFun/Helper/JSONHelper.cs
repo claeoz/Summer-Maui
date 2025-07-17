@@ -9,63 +9,20 @@ namespace SummerFun.Helper
 		private static string exercisePath = Path.Combine(FileSystem.AppDataDirectory, "Exercises.json");
 		private static string optionsPath = Path.Combine(FileSystem.AppDataDirectory, "Options.json");
 		private static ReadOnlySpan<byte> Utf8Bom => new byte[] { 0xEF, 0xBB, 0xBF };
-
-		/// <summary>
-		/// the default offline exercise list
-		/// </summary>
-		public static HashSet<ExerciseModel> defaultSet = new HashSet<ExerciseModel>
+		public static void CleanJsons()
 		{
-			new ExerciseModel
-				(
-					"Push-ups",
-				"you start by laying flat on the floor with your stomach down then hoist your upper body on your palms while keeping your spine and legs perfectly straight you push your body up and down",
-				Enums.Equipment.Body,
-				new HashSet<Muscles>
-				{
-					Muscles.Pecs
-				}
-				),
-				new ExerciseModel
-				(
-					"Sit-ups",
-					"lay on the ground (id recommend a mat) with your feet but and shoulders touching the ground. you keep your feet firmly planted on the ground and proceed to sit up using only your abs",
-					Enums.Equipment.Body,
-					new HashSet<Muscles>
-					{
-						Muscles.Abs
-					}
-				),
-				new ExerciseModel(
-					"Barbell Squat",
-					"A compound movement that strengthens the legs and glutes using a barbell.",
-					Equipment.Barbell,
-					new HashSet<Muscles>
-					{
-						Muscles.Quads,
-						Muscles.Glutes,
-						Muscles.Hamstrings
-					}
-				),
-
-				new ExerciseModel(
-					"Lat Pulldown",
-					"An upper-body pull exercise that targets the latissimus dorsi and biceps.",
-					Equipment.Machine,
-					new HashSet<Muscles>
-					{
-						Muscles.Lats,
-						Muscles.Biceps
-					}
-				)
-		};
-		public static OptionsModel defaultSettings = new OptionsModel(false);
+			File.Delete(exercisePath);
+			File.Delete(optionsPath);
+			SaveExercises(DefaultHelper.defaultSet);
+			SaveOptions(DefaultHelper.defaultSettings);
+		}
 		/// <summary>
 		/// clears exercise list
 		/// </summary>
 		public static void Reset()
 		{
 			File.Delete(exercisePath);
-			SaveExercises(defaultSet);
+			SaveExercises(DefaultHelper.defaultSet);
 		}
 		/// <summary>
 		/// Saves a exercise hashset to a json file
@@ -77,7 +34,7 @@ namespace SummerFun.Helper
 			{
 				File.Delete(exercisePath);
 			}
-			FileStream fileStream = File.OpenWrite(exercisePath);
+			FileStream fileStream = File.Create(exercisePath);
 			Utf8JsonWriter writer = new Utf8JsonWriter(fileStream);
 
 			writer.WriteStartArray();
@@ -107,7 +64,7 @@ namespace SummerFun.Helper
 		{
 			if (!File.Exists(exercisePath) || new FileInfo(exercisePath).Length == 0)
 			{
-				SaveExercises(defaultSet);
+				SaveExercises(DefaultHelper.defaultSet);
 			}
 
 			HashSet<ExerciseModel> exercises = new HashSet<ExerciseModel>();
@@ -196,10 +153,11 @@ namespace SummerFun.Helper
 		/// <returns>the settings from the Options.json file</returns>
 		public static OptionsModel LoadOptions()
 		{
-			OptionsModel model = defaultSettings;
-			if (File.Exists(optionsPath) || new FileInfo(optionsPath).Length == 0)
+			OptionsModel model = DefaultHelper.defaultSettings;
+			if (!File.Exists(optionsPath) || new FileInfo(optionsPath).Length == 0)
 			{
 				SaveOptions(model);
+				return model;
 			}
 			else
 			{
@@ -209,7 +167,7 @@ namespace SummerFun.Helper
 					CommentHandling = JsonCommentHandling.Skip
 				};
 
-				ReadOnlySpan<byte> jsonReadOnlySpan = File.ReadAllBytes(exercisePath);
+				ReadOnlySpan<byte> jsonReadOnlySpan = File.ReadAllBytes(optionsPath);
 
 				// Read past the UTF-8 BOM bytes if a BOM exists.
 				if (jsonReadOnlySpan.StartsWith(Utf8Bom))
@@ -224,7 +182,7 @@ namespace SummerFun.Helper
 					if (reader.TokenType == JsonTokenType.PropertyName)
 					{
 						string? propertyName = reader.GetString();
-						if (propertyName != null)
+						if (propertyName == null)
 						{
 							continue;
 						}
@@ -248,7 +206,7 @@ namespace SummerFun.Helper
 			{
 				File.Delete(optionsPath);
 			}
-			FileStream fileStream = File.OpenWrite(exercisePath);
+			FileStream fileStream = File.Create(optionsPath);
 			Utf8JsonWriter writer = new Utf8JsonWriter(fileStream);
 
 			writer.WriteStartObject();

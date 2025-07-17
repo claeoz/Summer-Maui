@@ -10,6 +10,7 @@ namespace SummerFun.ViewModels
 		private OptionsModel options;
 		public OptionsViewModel()
 		{
+			JSONHelper.CleanJsons();
 			options = JSONHelper.LoadOptions();
 		}
 		public OptionsModel Options

@@ -17,7 +17,7 @@
 		<RootNamespace>SummerFun</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
-		<RuntimeIdentifiers>android-arm;android-arm64</RuntimeIdentifiers>
+		<!--<RuntimeIdentifiers>android-arm;android-arm64</RuntimeIdentifiers>-->
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
