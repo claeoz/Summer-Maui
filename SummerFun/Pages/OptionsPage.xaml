@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SummerFun.Pages.OptionsPage"
              Title="OptionsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+	<Grid>
+		<Image Source="magnus.png" Aspect="AspectFill" Opacity="0.2" ZIndex="0"/>
+		<VerticalStackLayout ZIndex="1">
+			<Label FontSize="40" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Background="{StaticResource UniversalSecondaryColor}">
+				Options
+			</Label>
+			<Border>
+				<VerticalStackLayout>
+					<Border>
+						<HorizontalStackLayout Padding="6">
+							<Label VerticalTextAlignment="Center">
+								Online Mode
+							</Label>
+							<CheckBox Color="{StaticResource UniversalTextColor}"/>
+						</HorizontalStackLayout>
+					</Border>
+				</VerticalStackLayout>
+			</Border>
+		</VerticalStackLayout>
+	</Grid>
 </ContentPage>
