@@ -1,4 +1,5 @@
-﻿namespace SummerFun.Models
+﻿using SummerFun.Helper;
+namespace SummerFun.Models
 {
 	public class OptionsModel
 	{
@@ -16,6 +17,7 @@
 			set
 			{
 				onlineMode = value;
+				JSONHelper.SaveOptions(this);
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using SummerFun.Helper;
 using SummerFun.Models;
 
 namespace SummerFun.ViewModels
@@ -9,7 +10,7 @@ namespace SummerFun.ViewModels
 		private OptionsModel options;
 		public OptionsViewModel()
 		{
-			options = new OptionsModel(false);
+			options = JSONHelper.LoadOptions();
 		}
 		public OptionsModel Options
 		{
