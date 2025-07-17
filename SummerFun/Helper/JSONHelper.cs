@@ -191,9 +191,9 @@ namespace SummerFun.Helper
 			return exercises;
 		}
 		/// <summary>
-		/// Loads the options settings from options.json
+		/// Loads the options settings from Options.json
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>the settings from the Options.json file</returns>
 		public static OptionsModel LoadOptions()
 		{
 			OptionsModel model = defaultSettings;
@@ -244,7 +244,18 @@ namespace SummerFun.Helper
 		}
 		public static void SaveOptions(OptionsModel model)
 		{
+			if (File.Exists(optionsPath))
+			{
+				File.Delete(optionsPath);
+			}
+			FileStream fileStream = File.OpenWrite(exercisePath);
+			Utf8JsonWriter writer = new Utf8JsonWriter(fileStream);
 
+			writer.WriteStartObject();
+			writer.WriteBoolean("OnlineMode", model.OnlineMode);
+			writer.WriteEndObject();
+			writer.Flush();
+			fileStream.Close();
 		}
 	}
 }
