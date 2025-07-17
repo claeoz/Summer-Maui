@@ -16,7 +16,7 @@
 							<Label VerticalTextAlignment="Center">
 								Online Mode
 							</Label>
-							<CheckBox Color="{StaticResource UniversalTextColor}"/>
+							<CheckBox Color="{StaticResource UniversalTextColor}" IsChecked="{Binding Options.OnlineMode}"/>
 						</HorizontalStackLayout>
 					</Border>
 				</VerticalStackLayout>
