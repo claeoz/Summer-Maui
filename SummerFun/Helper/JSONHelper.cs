@@ -6,9 +6,13 @@ namespace SummerFun.Helper
 {
 	public static class JSONHelper
 	{
-		private static string path = Path.Combine(FileSystem.AppDataDirectory, "Exercises.json");
+		private static string exercisePath = Path.Combine(FileSystem.AppDataDirectory, "Exercises.json");
+		private static string optionsPath = Path.Combine(FileSystem.AppDataDirectory, "Options.json");
 		private static ReadOnlySpan<byte> Utf8Bom => new byte[] { 0xEF, 0xBB, 0xBF };
 
+		/// <summary>
+		/// the default offline exercise list
+		/// </summary>
 		public static HashSet<ExerciseModel> defaultSet = new HashSet<ExerciseModel>
 		{
 			new ExerciseModel
@@ -54,18 +58,26 @@ namespace SummerFun.Helper
 					}
 				)
 		};
+		public static OptionsModel defaultSettings = new OptionsModel(false);
+		/// <summary>
+		/// clears exercise list
+		/// </summary>
 		public static void Reset()
 		{
-			File.Delete(path);
+			File.Delete(exercisePath);
 			SaveExercises(defaultSet);
 		}
+		/// <summary>
+		/// Saves a exercise hashset to a json file
+		/// </summary>
+		/// <param name="exercises">a list of exercise</param>
 		public static void SaveExercises(HashSet<ExerciseModel> exercises)
 		{
-			if (File.Exists(path))
+			if (File.Exists(exercisePath))
 			{
-				File.Delete(path);
+				File.Delete(exercisePath);
 			}
-			FileStream fileStream = File.OpenWrite(path);
+			FileStream fileStream = File.OpenWrite(exercisePath);
 			Utf8JsonWriter writer = new Utf8JsonWriter(fileStream);
 
 			writer.WriteStartArray();
@@ -87,9 +99,13 @@ namespace SummerFun.Helper
 			writer.Flush();
 			fileStream.Close();
 		}
+		/// <summary>
+		/// Loads a list of exercises from exercise.json
+		/// </summary>
+		/// <returns>this is the list of exercises from the json</returns>
 		public static HashSet<ExerciseModel> LoadExercises()
 		{
-			if (!File.Exists(path) || new FileInfo(path).Length == 0)
+			if (!File.Exists(exercisePath) || new FileInfo(exercisePath).Length == 0)
 			{
 				SaveExercises(defaultSet);
 			}
@@ -102,7 +118,7 @@ namespace SummerFun.Helper
 				CommentHandling = JsonCommentHandling.Skip
 			};
 
-			ReadOnlySpan<byte> jsonReadOnlySpan = File.ReadAllBytes(path);
+			ReadOnlySpan<byte> jsonReadOnlySpan = File.ReadAllBytes(exercisePath);
 
 			// Read past the UTF-8 BOM bytes if a BOM exists.
 			if (jsonReadOnlySpan.StartsWith(Utf8Bom))
@@ -174,6 +190,61 @@ namespace SummerFun.Helper
 
 			return exercises;
 		}
+		/// <summary>
+		/// Loads the options settings from options.json
+		/// </summary>
+		/// <returns></returns>
+		public static OptionsModel LoadOptions()
+		{
+			OptionsModel model = defaultSettings;
+			if (File.Exists(optionsPath) || new FileInfo(optionsPath).Length == 0)
+			{
+				SaveOptions(model);
+			}
+			else
+			{
+				JsonReaderOptions options = new JsonReaderOptions
+				{
+					AllowTrailingCommas = true,
+					CommentHandling = JsonCommentHandling.Skip
+				};
 
+				ReadOnlySpan<byte> jsonReadOnlySpan = File.ReadAllBytes(exercisePath);
+
+				// Read past the UTF-8 BOM bytes if a BOM exists.
+				if (jsonReadOnlySpan.StartsWith(Utf8Bom))
+				{
+					jsonReadOnlySpan = jsonReadOnlySpan.Slice(Utf8Bom.Length);
+				}
+
+				var reader = new Utf8JsonReader(jsonReadOnlySpan, options);
+
+				while (reader.Read())
+				{
+					if (reader.TokenType == JsonTokenType.PropertyName)
+					{
+						string? propertyName = reader.GetString();
+						if (propertyName != null)
+						{
+							continue;
+						}
+						// Now read the value
+						if (!reader.Read()) continue;
+
+						switch (propertyName)
+						{
+							case "OnlineMode":
+								model.OnlineMode = reader.GetBoolean();
+								break;
+						}
+					}
+				}
+			}
+			return model;
+		}
+		public static void SaveOptions(OptionsModel model)
+		{
+
+		}
 	}
 }
