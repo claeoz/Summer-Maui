@@ -13,6 +13,9 @@
 						Magnus The Swole
 					</Label>
 					<Image Source="magnus.png"></Image>
+					<Border StrokeThickness="5" Padding="6">
+						<Label Text="{Binding Slogan}" FontSize="30"/>
+					</Border>
 				</VerticalStackLayout>
 			</Border>
 		</ScrollView>

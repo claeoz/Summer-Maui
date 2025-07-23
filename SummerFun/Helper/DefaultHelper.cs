@@ -54,5 +54,23 @@ namespace SummerFun.Helper
 				)
 		};
 		public static OptionsModel defaultSettings = new OptionsModel(false);
+
+		public static List<string> Slogans = new List<string>
+		{
+			"RAAAUUGH!!!",
+			"GET TO DA CHOPPAH",
+			"I may be out of spells slots but im not out of options",
+			"I CAST ... BRICK",
+			"Not all who wander is lost, but i sure as heck am",
+			"do not stray from the whey",
+			"Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein Protein"
+		};
+		public static string RandomSlogan()
+		{
+			Random random = new Random();
+			int index = random.Next(Slogans.Count - 1);
+			string slogan = Slogans[index];
+			return slogan;
+		}
 	}
 }
